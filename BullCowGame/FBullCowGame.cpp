@@ -1,14 +1,13 @@
 #include "FBullCowGame.h"
 #include<iostream>
 
-FBullCowGame::FBullCowGame()
-{
-	Reset();
-}
+//constructor 
+FBullCowGame::FBullCowGame() { Reset(); }
 
 int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
+bool FBullCowGame::IsGameWon() const { return bIsGuessTrue; }
 
 void FBullCowGame::Reset()
 {
@@ -19,15 +18,9 @@ void FBullCowGame::Reset()
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
+	bIsGuessTrue = false;
 	return;
 }
-
-
-bool FBullCowGame::IsGameWon() const
-{
-	return false;
-}
-
 
 //check if the guess is valid of not and return the suitable error message
 EGuessStatus FBullCowGame::IsGuessValid(FString Guess) const
@@ -51,7 +44,6 @@ EGuessStatus FBullCowGame::IsGuessValid(FString Guess) const
 	{
 		return EGuessStatus::OK;
 	}
-
 }
 
 
@@ -83,5 +75,13 @@ FBullCowCount FBullCowGame::SubmitGuess(FString Guess)
 			}
 		}
 	}
+	if (BullCowCount.Bulls == HiddenWordLenght) {
+		bIsGuessTrue = true;
+	}
+	else
+	{
+		bIsGuessTrue = false;
+	}
+
 	return BullCowCount;
 }

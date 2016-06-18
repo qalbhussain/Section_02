@@ -20,16 +20,12 @@ bool AskToPlayAgain();
 FBullCowGame BCGame; //initialize an instance of class: FBullCowGame() and make it global so it can access from everywhere
 
 int main() {
-	
-	
 	//Print Intro of Game
 	PrintIntro();
-
 	do {
 		//play the game
 		PlayGame();
 	} while (AskToPlayAgain());
-	
 
 	return 0;	//exit the game
 }
@@ -57,7 +53,7 @@ void PlayGame()
 	
 	//loop asking for guess while
 	//game is NOT won and their are still tries remainging
-	while(!BCGame.IsGameWon() && BCGame.GetCurrentTry <= MaxTries)
+	while(!BCGame.IsGameWon() && BCGame.GetCurrentTry() <= MaxTries)
 	{
 		FText Guess = GetValidGuess();
 		

@@ -33,14 +33,15 @@ public:
 
 
 	void Reset();
-	
+
 	//provide a method for counting bulls and cows and increasing try #
 	FBullCowCount SubmitGuess(FString);
 
 
 private:
 	int32 MyCurrentTry;
-	int32  MyMaxTries ;
+	int32  MyMaxTries;
 	FString MyHiddenWord;
+	bool bIsGuessTrue;
 
 };
