@@ -16,6 +16,7 @@ using int32 = int;
 //funtions prototype
 FText GetValidGuess();
 bool AskToPlayAgain();
+void PrintGameSummary();
 
 FBullCowGame BCGame; //initialize an instance of class: FBullCowGame() and make it global so it can access from everywhere
 
@@ -66,6 +67,11 @@ void PlayGame()
 		std::cout << std::endl;
 	}
 
+	PrintGameSummary();
+
+	
+
+	return;
 }
 
 //get Valid guess from user
@@ -114,4 +120,17 @@ bool AskToPlayAgain()
 	std::cout << "Do you want to Play again? " << std::endl;
 	std::getline(std::cin, Response);
 	return ((Response[0] == 'y')|| (Response[0] == 'Y'));
+}
+
+void PrintGameSummary()
+{
+	if (BCGame.IsGameWon())
+	{
+		std::cout << "Hurraaah ! You won the Game !\n";
+	}
+	else
+	{
+		std::cout << "Opps ! Better luck next time !\n";
+	}
+	return;
 }
