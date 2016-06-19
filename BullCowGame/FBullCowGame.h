@@ -31,9 +31,8 @@ public:
 	bool IsGameWon() const;
 	EGuessStatus IsGuessValid(FString) const;
 
-
 	void Reset();
-
+	
 	//provide a method for counting bulls and cows and increasing try #
 	FBullCowCount SubmitGuess(FString);
 
@@ -43,5 +42,8 @@ private:
 	int32  MyMaxTries;
 	FString MyHiddenWord;
 	bool bIsGuessTrue;
+
+	bool IsIsogram(FString) const;
+	bool IsLowerCase(FString) const;
 
 };
